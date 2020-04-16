@@ -13,6 +13,12 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 
+# Img list filter func
+def imgFilter(img):
+    if img.endswith('.png'):
+        return True
+    return False
+
 def trainAnimeGen(batchSize = 5, epoch = 10, saveInterval = 2, modelSave = True, useSavedModel = False, verbose = False, picsave = False):
     # Model creater helper call
     if useSavedModel:
@@ -39,7 +45,7 @@ def trainAnimeGen(batchSize = 5, epoch = 10, saveInterval = 2, modelSave = True,
 
     for i in range(epoch):
         # Load data
-        xTrue = dataBatch(imgType = 'train', batchSize = batchSize)
+        xTrue = dataBatch(imgType = 'true', batchSize = batchSize)
         xMask = dataBatch(imgType = 'mask', batchSize = batchSize)
 
         # Generate anime faces from masks
@@ -70,6 +76,7 @@ def trainAnimeGen(batchSize = 5, epoch = 10, saveInterval = 2, modelSave = True,
             print(f'Save Interval{i + 1} Time')
             iNum = i + 1
             predImages = os.listdir('data/topredict')
+            predImages = list(filter(imgFilter, predImages))
             for i in predImages:
                 # Open test img
                 originalImage = Image.open(f'data/topredict/{i}')
@@ -84,7 +91,7 @@ def trainAnimeGen(batchSize = 5, epoch = 10, saveInterval = 2, modelSave = True,
                 imgName = i.split('.')[0]
                 try:
                     if picsave:
-                        predArr = predArr.swapaxes(1, 2)
+                        # predArr = predArr.swapaxes(1, 2)
                         predImg = Image.fromarray(predArr[0, :, :, :], 'RGB')
                         predImg.save(f'data/predicted/{imgName}Interval{iNum}.png')
                 except:
@@ -113,5 +120,5 @@ def summary(useSavedModel = False):
 
     
 if __name__ == '__main__':
-    summary(useSavedModel = False)
-    # trainAnimeGen(batchSize = 1, epoch = 100, saveInterval = 10, useSavedModel = False, verbose = True, picsave = True)
+    # summary(useSavedModel = False)
+    trainAnimeGen(batchSize = 1, epoch = 10000, saveInterval = 100, useSavedModel = True, verbose = True, picsave = True)

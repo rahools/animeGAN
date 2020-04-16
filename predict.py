@@ -1,29 +1,31 @@
 import os
 import numpy as np
-
 from PIL import Image
-from keras.preprocessing.image import load_img, img_to_array
-from scipy.misc import imresize
-import matplotlib.pyplot as plt
 
 from keras.models import load_model
+from keras.layers import LeakyReLU
 
-# Load Model
-model = load_model("modelSaved/AnimeGen.h5")
+def predict():
+    LR = LeakyReLU(alpha=0.1)
+    LR.__name__ = 'leakyReLU'
 
-# Create Predict Data & predict & save
-predImages = os.listdir('topredict')
+    # Load Model
+    model = load_model('data/modelSaved/genModel.h5', custom_objects = {"leakyReLU": LR})
 
-for img in predImages:
-    imgs = []
-    originalImage = load_img(f'topredict/{img}')
-    resizedImage = imresize(originalImage, [64, 64, 3])
-    arrayImage = img_to_array(resizedImage) / 255
-    imgs.append(arrayImage)
+    # Create Predict Data & predict & save
+    predImages = os.listdir('data/topredict')
 
-    arrayImageNP = np.array(imgs)
+    for img in predImages:
+        originalImage = Image.open(f'data/topredict/{img}')
+        resizedImage = np.array(originalImage.resize([64, 64]))
+        arrayImage = resizedImage / 255
+        img2p = arrayImage[np.newaxis, :, :, :]
 
-    predArr = model.predict(arrayImageNP)
+        predArr = model.predict(img2p)
 
-    imgName = img.split('.')[0]
-    plt.imsave(f'predicted/{imgName}_mask.png', predArr[0, :, :, :])
+        predArr = predArr.swapaxes(1, 2)
+        predImg = Image.fromarray(predArr[0, :, :, :], 'RGB')
+        predImg.save(f'data/predicted/{img}')
+
+if __name__ == '__main__':
+    predict()
