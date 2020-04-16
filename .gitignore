@@ -8,3 +8,9 @@ animegen/
 # ignore input, mask data dir
 data/input/
 *.png
+
+# ignore pychache
+__pycache__/
+
+# ignore vscode settings
+.vscode/
