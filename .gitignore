@@ -1,12 +1,12 @@
 # ignore saved models dir
-data/modelSaved/
+# data/modelSaved/
 *.h5
 
 # ignore virtual env dir
 animegen/
 
 # ignore input, mask data dir
-data/input/
+# data/input/
 *.png
 
 # ignore pychache
