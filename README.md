@@ -35,9 +35,9 @@ pip install -r requirements.txt
 
 ### Generating Training Data
 
-Download and populate the data directory, I used this [dataset](https://github.com/Mckinsey666/Anime-Face-Dataset).
+Download and populate the data directory, I used this [dataset](https://www.kaggle.com/splcher/animefacedataset).
 ```
-data/input/true
+input/true/1
 ```
 
 Generate training masks using
@@ -45,36 +45,12 @@ Generate training masks using
 python createMaskImg.py
 ```
 
-## Running
+## Milestone 1: Face Generation from Noise | Completed
 
-### Training from scratch
+To ease up the development, I decided to break the project into bite-size pieces. So for the first milestone, I choose to set up a GAN model such that it would automatically generate faces from random noise. [link](https://github.com/rahools/animeGAN/tree/milestone1)
 
-You can train the model using
+## Milestone 2: Converting Input Image
 
-```
-python trainModel.py
-```
+Next in line, I would be tackling handling partially erased input images into a latent space embedding, which further could be feed into the GAN model.
 
-### Using Pre Trained models
 
-comming soon.
-
-### Predicting
-
-Paste an image that has to the construct in 
-
-```
-data/topredict
-```
-
-To construct the image, run
-
-```
-python predict.py
-```
-
-you can now see the results in 
-
-```
-data/predicted
-```
