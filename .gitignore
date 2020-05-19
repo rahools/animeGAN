@@ -1,13 +1,10 @@
-# ignore saved models dir
-# data/modelSaved/
-*.h5
-
 # ignore virtual env dir
-animegen/
+animeGANFlask/
 
 # ignore input, mask data dir
 # data/input/
 *.png
+*.jpg
 
 # ignore pychache
 __pycache__/

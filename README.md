@@ -1,80 +1,27 @@
-# AnimeGAN
+# Milestone 1 : Face Generation from Noise
 
-AnimeGAN is my foray into the unchartered GAN territory. My goal for this project is to be able to construct partially erased anime face images. 
-
-NOTE: THE PROJECT IS STILL UNDER DEVELOPMENT.
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
-### Prerequisites
-
-python 3.7
-
-### Installing
-
-First, you would have to install virtualenv.
-
-```
-pip install virtualenv
-```
-
-Create and activate a python virtualenv.
-
-```
-python -m venv animegan
-.\animegan\Scripts\activate
-```
-
-Install the required python packages.
-
-```
-pip install -r requirements.txt
-```
-
-### Generating Training Data
-
-Download and populate the data directory, I used this [dataset](https://github.com/Mckinsey666/Anime-Face-Dataset).
-```
-data/input/true
-```
-
-Generate training masks using
-```
-python createMaskImg.py
-```
+To ease up the development, I decided to break the project into bite size pieces. So for the first milestone, I choose to setup a GAN model such that it would automatically generate faces from random noise.
 
 ## Running
 
 ### Training from scratch
 
+[Colab Notebook](https://colab.research.google.com/drive/18FmrptLPQgeSTs_Bg8Fchuz2Ryga0xNe?usp=sharing)
+
 You can train the model using
 
 ```
-python trainModel.py
+python train.py
 ```
 
 ### Using Pre Trained models
 
 comming soon.
 
-### Predicting
+### Generation
 
-Paste an image that has to the construct in 
-
-```
-data/topredict
-```
-
-To construct the image, run
+To boot up the web interface, run
 
 ```
-python predict.py
-```
-
-you can now see the results in 
-
-```
-data/predicted
+python app.py
 ```
