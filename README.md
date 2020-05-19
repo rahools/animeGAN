@@ -40,11 +40,6 @@ Download and populate the data directory, I used this [dataset](https://www.kagg
 input/true/1
 ```
 
-Generate training masks using
-```
-python createMaskImg.py
-```
-
 ## Milestone 1: Face Generation from Noise | Completed
 
 To ease up the development, I decided to break the project into bite-size pieces. So for the first milestone, I choose to set up a GAN model such that it would automatically generate faces from random noise. [link](https://github.com/rahools/animeGAN/tree/milestone1)
