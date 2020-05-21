@@ -1,8 +1,6 @@
 # AnimeGAN
 
-AnimeGAN is my foray into the unchartered GAN territory. My goal for this project is to be able to construct partially erased anime face images. 
-
-NOTE: THE PROJECT IS STILL UNDER DEVELOPMENT.
+AnimeGAN is my foray into the unchartered GAN territory.
 
 ## Getting Started
 
@@ -40,12 +38,28 @@ Download and populate the data directory, I used this [dataset](https://www.kagg
 input/true/1
 ```
 
-## Milestone 1: Face Generation from Noise | Completed
+## Running
 
-To ease up the development, I decided to break the project into bite-size pieces. So for the first milestone, I choose to set up a GAN model such that it would automatically generate faces from random noise. [link](https://github.com/rahools/animeGAN/tree/milestone1)
+### Training from scratch
 
-## Milestone 2: Converting Input Image
+[Colab Notebook](https://colab.research.google.com/drive/18FmrptLPQgeSTs_Bg8Fchuz2Ryga0xNe?usp=sharing)
 
-Next in line, I would be tackling handling partially erased input images into a latent space embedding, which further could be feed into the GAN model.
+You can train the model using
+
+```
+python train.py
+```
+
+### Using Pre Trained models
+
+coming soon.
+
+### Generation
+
+To boot up the web interface, run
+
+```
+python app.py
+```
 
 
