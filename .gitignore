@@ -1,11 +1,6 @@
 # ignore virtual env dir
 animeGANFlask/
 
-# ignore input, mask data dir
-# data/input/
-*.png
-*.jpg
-
 # ignore pychache
 __pycache__/
 
