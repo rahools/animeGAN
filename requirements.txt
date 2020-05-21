@@ -1,6 +1,5 @@
-Pillow
 torch
 torchvision
-numpy
 Flask
+Pillow
 matplotlib
