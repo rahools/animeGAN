@@ -25,7 +25,7 @@ modelList = os.listdir('./savedModel')
 modelList.sort()
 ## Load the saved model
 generator = Generator()
-generator.load_state_dict(torch.load(f'./savedModel/{modelList[-1]}'))
+generator.load_state_dict(torch.load(f'./savedModel/{modelList[-1]}', map_location='cpu'))
 ## push the model to our torch device
 generator = generator.to(device)
 ## put model in eval() mode
