@@ -1,6 +1,42 @@
-# Milestone 1 : Face Generation from Noise
+# AnimeGAN
 
-To ease up the development, I decided to break the project into bite size pieces. So for the first milestone, I choose to setup a GAN model such that it would automatically generate faces from random noise.
+AnimeGAN is my foray into the unchartered GAN territory.
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+python 3.7
+
+### Installing
+
+First, you would have to install virtualenv.
+
+```
+pip install virtualenv
+```
+
+Create and activate a python virtualenv.
+
+```
+python -m venv animegan
+.\animegan\Scripts\activate
+```
+
+Install the required python packages.
+
+```
+pip install -r requirements.txt
+```
+
+### Generating Training Data
+
+Download and populate the data directory, I used this [dataset](https://www.kaggle.com/splcher/animefacedataset).
+```
+input/true/1
+```
 
 ## Running
 
@@ -16,7 +52,7 @@ python train.py
 
 ### Using Pre Trained models
 
-comming soon.
+coming soon.
 
 ### Generation
 
@@ -25,3 +61,5 @@ To boot up the web interface, run
 ```
 python app.py
 ```
+
+
