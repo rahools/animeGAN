@@ -3,3 +3,4 @@ torchvision
 Flask
 Pillow
 matplotlib
+gunicorn
