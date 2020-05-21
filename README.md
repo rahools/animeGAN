@@ -1,6 +1,8 @@
 # AnimeGAN
 
-AnimeGAN is my foray into the unchartered GAN territory.
+AnimeGAN is my foray into the unchartered GAN territory. 
+
+checkout deployed instance. [link](https://anime-gan.herokuapp.com/)
 
 ## Getting Started
 
@@ -31,24 +33,25 @@ Install the required python packages.
 pip install -r requirements.txt
 ```
 
-### Generating Training Data
-
-Download and populate the data directory, I used this [dataset](https://www.kaggle.com/splcher/animefacedataset).
-```
-input/true/1
-```
-
 ## Running
 
 ### Training from scratch
 
-[Colab Notebook](https://colab.research.google.com/drive/18FmrptLPQgeSTs_Bg8Fchuz2Ryga0xNe?usp=sharing)
+[Training Colab Notebook](https://colab.research.google.com/drive/18FmrptLPQgeSTs_Bg8Fchuz2Ryga0xNe?usp=sharing)
+
+Download and populate the data directory, I used this [dataset](https://www.kaggle.com/splcher/animefacedataset). 
+
+```
+input/true/1
+```
 
 You can train the model using
 
 ```
 python train.py
 ```
+
+Note: You might want to install torch's gpu version for faster training.
 
 ### Using Pre Trained models
 
