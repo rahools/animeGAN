@@ -7,6 +7,8 @@ import torchvision.utils as vutils
 import os
 import matplotlib.pyplot as plt
 import numpy as np
+from io import BytesIO
+import base64
 from time import time
 
 # Flask Object
@@ -44,14 +46,19 @@ def generate():
     generatedImgArray = generator(noise).detach().cpu()
 
     # plotting img
-    plt.figure(figsize=(6,6))
-    plt.axis("off")
-    plt.imshow(np.transpose(vutils.make_grid(generatedImgArray, padding=2, normalize=True), (1,2,0)))
+    f, ax = plt.subplots(figsize=(11, 9))
+    ax.axis("off")
+    ax.imshow(np.transpose(vutils.make_grid(generatedImgArray, padding=2, normalize=True), (1,2,0)))
 
     # saving plot image
-    NAME = f'./static/{int(time())}.jpg'
-    plt.savefig(NAME)
-    return render_template('generatorOut.html', genImage = NAME)
+    img = BytesIO()
+    f.savefig(img, format='png')
+    plt.close(f)
+
+    img.seek(0)
+    b64img = base64.b64encode(img.getvalue()).decode('utf8')
+
+    return render_template('generatorOut.html', genImage = b64img)
 
 if __name__ == '__main__':
     app.run(debug=True)
